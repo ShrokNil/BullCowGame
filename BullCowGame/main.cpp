@@ -8,16 +8,17 @@ for game logic see FBullCowGame class.
 #include "Fbullcowgame.h"
 
 using FText = std::string;
+using int32 = int;
 
 void PrintIntro();
 void PlayGame();
 FText GetGuess();
 bool AskToPlayAgain();
 
-FBullCowGame BCGame; //instantiate a new game
+FBullCowGame BCGame; //Instantiate a new game
 
-// the entry point for our application
-int main()
+// The entry point for our application
+int32 main()
 {
 
 	bool bPlayAgain = false;
@@ -33,14 +34,14 @@ int main()
 
 	while (bPlayAgain);
 
-	return 0; // exit the application
+	return 0; // Exit the application
 }
 
 
-// introduce the game
+// Introduce the game
 void PrintIntro()
 {
-	constexpr int WORD_LENGTH = 9;
+	constexpr int32 WORD_LENGTH = 9;
 	std::cout << "Welcome to Bulls and Cows, a fun word game.\n";
 	std::cout << "Can you guess the " << WORD_LENGTH;
 	std::cout << " letter isogram I'm thinking of?\n";
@@ -52,16 +53,16 @@ void PrintIntro()
 void PlayGame()
 {
 
-	int MaxTries = BCGame.GetMaxTries();
+	int32 MaxTries = BCGame.GetMaxTries();
 	std::cout << MaxTries << std::endl;
 
-	// loop for the number of turns asking for guesses
+	// Loop for the number of turns asking for guesses
 	// TODO change from FOR to WHILE loop once we are validating tries
-	for (int count = 1; count <= MaxTries; count++) {
+	for (int32 count = 1; count <= MaxTries; count++) {
 		FText Guess = GetGuess(); //TODO make loop checking valid guesses
 
-		//submit valid guess to the game
-		//print number of bulls and cows
+		//Submit valid guess to the game
+		//Print number of bulls and cows
 		std::cout << "Your guess was: " << Guess << std::endl;
 		std::cout << std::endl;
 	}
@@ -71,9 +72,9 @@ void PlayGame()
 
 FText GetGuess()
 {
-	int CurrentTry = BCGame.GetCurrentTry();
+	int32 CurrentTry = BCGame.GetCurrentTry();
 
-	// get a guess from the player
+	// Get a guess from the player
 	std::cout << "Enter your guess: ";
 	FText Guess = "";
 	std::getline(std::cin, Guess);
