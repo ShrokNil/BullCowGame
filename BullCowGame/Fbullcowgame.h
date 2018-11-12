@@ -1,41 +1,51 @@
 #pragma once
 #include <string>
 
-using FString = std::string;
-using FText = std::string;
-using int32 = int;
-//Never use a using namespace in a header file
+///Remember to change names here to match those in the Fbullcowgame.cpp where applicable!
 
-// All values initialized to zero
+using FString = std::string;
+using int32 = int;
+
+// all values intialised to zero
 struct FBullCowCount
 {
 	int32 Bulls = 0;
 	int32 Cows = 0;
 };
 
-class FBullCowGame 
+enum EGuessStatus
 {
-public:
-	FBullCowGame(); // Contstructor
-	
+	Invalid_Status,
+	OK,
+	Not_Isogram,
+	Wrong_Length,
+	Not_Lowercase
 
-	void Reset(); // TODO make a more rich return value.
-	int32 GetMaxTries() const ;
-	int32 GetCurrentTry() const;
-	bool IsGameWon() const;
-
-	void GetWordRandomly();
-	bool CheckGuessValidity(FText);
-	// Counts bulls & cows, and increasing turn number assuming valid guess.
-	FBullCowCount SubmitGuess(FString);
-
-// ^^ Try to ignore this and focus on the interface above.
-private: 
-	// See constructor for initialization
-	int32 MyCurrentTry;
-	int32 MyMaxTries;
-	FString MyHiddenWord;
-		
 
 };
 
+
+class FBullCowGame
+{
+public:
+	FBullCowGame(); // constructor
+
+	int32 GetMaxTries() const;
+	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
+	
+	bool IsGameWon() const;
+	EGuessStatus CheckGuessValidity(FString) const;
+
+	void Reset(); // TODO make a more rich return value.
+	 // TODO make a more rich return value.
+	FBullCowCount SubmitGuess(FString);
+
+
+	// ^^ Please try and ignore this and focus on the interface above ^^
+private:
+	// see constructor for initialisation
+	int32 MyCurrentTry;
+	int32 MyMaxTries;
+	FString MyHiddenWord;
+};
