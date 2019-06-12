@@ -31,15 +31,17 @@ public:
 	FBullCowGame(); // constructor
 
 	int32 GetMaxTries() const;
+
 	int32 GetCurrentTry() const;
 	int32 GetHiddenWordLength() const;
-	
+
 	bool IsGameWon() const;
+	bool IsIsogram() const;
 	EGuessStatus CheckGuessValidity(FString) const;
 
-	void Reset(); // TODO make a more rich return value.
-	 // TODO make a more rich return value.
-	FBullCowCount SubmitGuess(FString);
+	void Reset(); //TODO wrtite a richer return value 
+
+	FBullCowCount SubmitValidGuess(FString);
 
 
 	// ^^ Please try and ignore this and focus on the interface above ^^
@@ -48,4 +50,7 @@ private:
 	int32 MyCurrentTry;
 	int32 MyMaxTries;
 	FString MyHiddenWord;
+	bool bGameIsWon;
+	
+	bool IsIsogram(FString) const;
 };
