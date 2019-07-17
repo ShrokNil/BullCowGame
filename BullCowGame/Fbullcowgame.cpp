@@ -121,9 +121,5 @@ bool FBullCowGame::IsLowercase(FString Word) const
 	return true;
 }
 
-bool FBullCowGame::IsWrongLength(FString Word)
-{
-	return false;
-}
  
  

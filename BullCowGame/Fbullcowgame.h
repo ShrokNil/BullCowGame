@@ -54,5 +54,5 @@ private:
 	
 	bool IsIsogram(FString) const;
 	bool IsLowercase(FString) const;
-	bool IsWrongLength(FString);
+
 };
