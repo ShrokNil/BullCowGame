@@ -36,7 +36,7 @@ public:
 	int32 GetHiddenWordLength() const;
 
 	bool IsGameWon() const;
-	bool IsIsogram() const;
+	
 	EGuessStatus CheckGuessValidity(FString) const;
 
 	void Reset(); //TODO wrtite a richer return value 
@@ -53,4 +53,6 @@ private:
 	bool bGameIsWon;
 	
 	bool IsIsogram(FString) const;
+	bool IsLowercase(FString) const;
+	bool IsWrongLength(FString);
 };
