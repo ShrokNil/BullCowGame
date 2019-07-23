@@ -1,12 +1,16 @@
+/*The game logic (no view code or direct user interaction
+the game is a simple guess the word game based on Mastermind*/
+
 #pragma once
+
 #include <string>
 
-///Remember to change names here to match those in the Fbullcowgame.cpp where applicable!
+
 
 using FString = std::string;
 using int32 = int;
 
-// all values intialised to zero
+
 struct FBullCowCount
 {
 	int32 Bulls = 0;
@@ -39,16 +43,15 @@ public:
 	
 	EGuessStatus CheckGuessValidity(FString) const;
 
-	void Reset(); //TODO wrtite a richer return value 
+	void Reset();
 
 	FBullCowCount SubmitValidGuess(FString);
 
 
-	// ^^ Please try and ignore this and focus on the interface above ^^
+	
 private:
 	// see constructor for initialisation
 	int32 MyCurrentTry;
-	int32 MyMaxTries;
 	FString MyHiddenWord;
 	bool bGameIsWon;
 	
